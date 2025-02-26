@@ -10,6 +10,8 @@ namespace CuartoEjercicio
     {
         static void Main(string[] args)
         {
+            aqui los ejercicios 
+                comentar el codigo
         }
     }
 }

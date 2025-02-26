@@ -1,15 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
-namespace PrimerEjercicio
+public class Animal
 {
-    internal class Program
+    public string Nombre { get; set; }
+    public int Edad { get; set; }
+    public string Especie { get; set; }
+
+    public virtual void Hablar()
     {
-        static void Main(string[] args)
-        {
-        }
+        Console.WriteLine("El animal hace un sonido");
+    }
+}
+
+public class Perro : Animal
+{
+    public override void Hablar()
+    {
+        Console.WriteLine("El perro ladra");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Perro perro = new Perro() { Nombre = "Rex", Edad = 3, Especie = "Canino" };
+        perro.Hablar();
     }
 }

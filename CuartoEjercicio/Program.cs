@@ -1,17 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
-namespace CuartoEjercicio
+public abstract class Figura
 {
-    internal class Program
+    public abstract double Area();
+}
+
+public class Circulo : Figura
+{
+    public double Radio { get; set; }
+
+    public override double Area()
     {
-        static void Main(string[] args)
-        {
-            aqui los ejercicios 
-                comentar el codigo
-        }
+        return Math.PI * Radio * Radio;
+    }
+}
+
+public class Rectangulo : Figura
+{
+    public double Alto { get; set; }
+    public double Ancho { get; set; }
+
+    public override double Area()
+    {
+        return Alto * Ancho;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Figura figura1 = new Circulo() { Radio = 5 };
+        Figura figura2 = new Rectangulo() { Alto = 4, Ancho = 6 };
+
+        Console.WriteLine($"Área del círculo: {figura1.Area()}");
+        Console.WriteLine($"Área del rectángulo: {figura2.Area()}");
     }
 }

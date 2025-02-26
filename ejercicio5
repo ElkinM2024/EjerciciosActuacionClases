@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+
+public class Libro
+{
+    public string Titulo { get; set; }
+    public string Autor { get; set; }
+    public int AnioPublicacion { get; set; }
+
+    public Libro(string titulo, string autor, int anioPublicacion)
+    {
+        Titulo = titulo;
+        Autor = autor;
+        AnioPublicacion = anioPublicacion;
+    }
+}
+
+public class Biblioteca
+{
+    private List<Libro> libros = new List<Libro>();
+
+    public void AgregarLibro(Libro libro)
+    {
+        libros.Add(libro);
+    }
+
+    public void MostrarLibros()
+    {
+        foreach (var libro in libros)
+        {
+            Console.WriteLine($"{libro.Titulo} de {libro.Autor} ({libro.AnioPublicacion})");
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Libro libro1 = new Libro("El Quijote", "Miguel de Cervantes", 1605);
+        Libro libro2 = new Libro("Cien años de soledad", "Gabriel García Márquez", 1967);
+
+        Biblioteca biblioteca = new Biblioteca();
+        biblioteca.AgregarLibro(libro1);
+        biblioteca.AgregarLibro(libro2);
+
+        biblioteca.MostrarLibros();
+    }
+}
